@@ -16,6 +16,11 @@ const WalletSetup: React.FC = () => {
 
   return (
     <div className="wallet-container">
+      <div className="app-header">
+        <span className="app-logo">🔮</span>
+        <span className="app-name">Orb Wallet</span>
+      </div>
+
       <h1 className="title">Multi-Chain Wallet Generator</h1>
 
       {!chain && (

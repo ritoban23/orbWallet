@@ -9,6 +9,31 @@
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   min-height: 100vh;
   color: #333;
+  position: relative;
+}
+
+.app-header {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.app-logo {
+  font-size: 1.5rem;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.app-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.5px;
 }
 
 .title {
@@ -16,6 +41,7 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 3rem;
+  margin-top: 4rem;
   color: white;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -86,9 +112,18 @@
     padding: 1rem;
   }
   
+  .app-header {
+    position: relative;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
   .title {
     font-size: 2rem;
     margin-bottom: 2rem;
+    margin-top: 1rem;
   }
   
   .chain-selection {
