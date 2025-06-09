@@ -1,54 +1,70 @@
-# React + TypeScript + Vite
+# Multi-Chain Wallet Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based web wallet generator for **Ethereum** and **Solana** blockchains.  
+Allows users to generate secure mnemonics, derive multiple wallets using standard HD paths, and manage wallets easily — all within a clean UI.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Generate a new **mnemonic seed phrase** (BIP39 standard)
+- Derive multiple wallets from a single mnemonic using HD derivation paths
+- Support for both **Ethereum** (EVM) and **Solana** wallets
+- View public addresses and private keys for each generated wallet
+- Delete individual wallets or clear all wallets
+- Switch between Ethereum and Solana wallet generation modes
+- Responsive UI built with React and Tailwind CSS
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Tech Stack
+
+- React + TypeScript (Vite scaffold)
+- Ethereum wallet generation with [ethers.js v6](https://docs.ethers.org/v6/)
+- Solana wallet generation with [@solana/web3.js](https://solana-labs.github.io/solana-web3.js/)
+- Mnemonic generation via [bip39](https://github.com/bitcoinjs/bip39)
+- Key derivation using [ed25519-hd-key](https://github.com/bitcoinjs/ed25519-hd-key) (for Solana)
+- UI styling with plain CSS
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v16+ recommended)
+- npm or yarn package manager
+
+### Installation
+
+1. Clone the repository:
+
+````markdown
+```bash
+git clone https://github.com/yourusername/orbWallet.git
+cd orbWallet
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Install dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm install
+# or
+yarn
 ```
+
+Run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) to view in your browser.
+
+## Security Notice
+
+- **Never share your mnemonic or private keys publicly.**
+- This project is for educational/demo purposes only.
+- Do not use generated wallets with real funds unless you fully understand the risks.
