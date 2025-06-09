@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { generateMnemonic } from "bip39";
-import { ethers } from "ethers";
+import { HDNodeWallet, Mnemonic } from "ethers";
 import "../componentStyles/WalletGenerators.css";
 
 interface WalletInfo {
@@ -28,7 +28,8 @@ const EthereumWalletGenerator: React.FC<Props> = ({ onBack }) => {
     if (!mnemonic) return alert("Generate mnemonic first.");
 
     const path = `m/44'/60'/0'/0/${walletIndex}`;
-    const wallet = ethers.Wallet.fromPhrase(mnemonic, path);
+    const mnemonicObj = Mnemonic.fromPhrase(mnemonic);
+    const wallet = HDNodeWallet.fromMnemonic(mnemonicObj, path);
 
     setWallets([
       ...wallets,
@@ -138,6 +139,7 @@ const EthereumWalletGenerator: React.FC<Props> = ({ onBack }) => {
 };
 
 export default EthereumWalletGenerator;
+
 
 
 
